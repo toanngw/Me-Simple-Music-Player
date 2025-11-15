@@ -172,7 +172,6 @@ const app = {
             } else {
                 app.nextSong()
             }
-            // this.loadCurrentSong()
             audio.play()
         }
 
@@ -183,7 +182,6 @@ const app = {
             } else {
                 app.prevSong()
             }
-            // app.loadCurrentSong()
             audio.play()
         }
 
@@ -191,7 +189,6 @@ const app = {
         randomBtn.onclick = function () {
             app.isRandom = !app.isRandom
             this.classList.toggle('active')
-            app.randomSong()
         }
 
     },
