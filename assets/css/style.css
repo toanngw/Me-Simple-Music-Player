@@ -49,7 +49,7 @@
 
  .dashboard {
      padding: 16px 16px 14px;
-     background: var(--dashboard-bg-color);
+     /* background: var(--dashboard-bg-color); */
      border: 1px solid var(--dashboard-border-color);
      padding: 24px;
      position: fixed;
@@ -60,6 +60,13 @@
      flex-direction: column;
      justify-content: center;
      align-items: center;
+     /* position: sticky; */
+     z-index: 100;
+     background: linear-gradient(to bottom,
+             rgba(10, 14, 39, 1) 0%,
+             rgba(10, 14, 39, 0.95) 100%);
+     backdrop-filter: blur(10px);
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
  }
 
  .dashboard header {
