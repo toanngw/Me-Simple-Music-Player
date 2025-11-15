@@ -12,11 +12,12 @@ const progress = $('.progress')
 const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
 const randomBtn = $('.btn-random')
-
+const repeatBtn = $('.btn-repeat')
 
 const app = {
     currentIndex: 0,
     isRandom: false,
+    isRepeated: false,
     songs: [
         {
             name: 'Loser',
@@ -191,9 +192,19 @@ const app = {
             this.classList.toggle('active')
         }
 
+        // when click on repeat button
+        repeatBtn.onclick = function () {
+            app.isRepeated = !app.isRepeated
+            this.classList.toggle('active')
+        }
+
         // when song ends, handle playing next song or repeat
         audio.onended = function () {
-            nextBtn.click()
+            if (!app.isRepeated) {
+                nextBtn.click()
+            } else {
+                audio.play()
+            }
         }
 
     },

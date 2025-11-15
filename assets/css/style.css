@@ -59,6 +59,10 @@
     color: blue;
 }
 
+.dashboard .control .btn-repeat.active i {
+    color: blue;
+}
+
 .dashboard .control .progress {
     width: 100%;
 }
