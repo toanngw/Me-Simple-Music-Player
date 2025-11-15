@@ -17,11 +17,13 @@ const repeatBtn = $('.btn-repeat i')
 const playlist = $('.playlist')
 $('footer .year').textContent = new Date().getFullYear();
 
+const MUSIC_PLAYER_SETTING_KEY = 'ZENN_SETTINGS'
 
 const app = {
     currentIndex: 0,
     isRandom: false,
     isRepeated: false,
+    config: JSON.parse(localStorage.getItem(MUSIC_PLAYER_SETTING_KEY)) || {},
     songs: [
         {
             name: 'Loser',
@@ -90,6 +92,10 @@ const app = {
             image: './assets/img/alot.jpg'
         }
     ],
+    setConfig(key, value) {
+        this.config[key] = value
+        localStorage.setItem(MUSIC_PLAYER_SETTING_KEY, JSON.stringify(this.config))
+    },
     render() {
         const htmls = this.songs.map((song, index) => {
             return `
@@ -206,13 +212,15 @@ const app = {
         // when clicking random button
         randomBtn.onclick = function () {
             app.isRandom = !app.isRandom
-            this.classList.toggle('active')
+            app.setConfig('isRandom', app.isRandom)
+            this.classList.toggle('active', app.isRandom)
         }
 
         // when click on repeat button
         repeatBtn.onclick = function () {
             app.isRepeated = !app.isRepeated
-            this.classList.toggle('active')
+            app.setConfig('isRepeated', app.isRepeated)
+            this.classList.toggle('active', app.isRepeated)
         }
 
         // when song ends, handle playing next song or repeat
@@ -256,6 +264,10 @@ const app = {
         cdThumb.style.backgroundImage = `url(${this.currentSong.image})`
         audio.src = this.currentSong.path
     },
+    loadConfig() {
+        this.isRandom = this.config.isRandom
+        this.isRepeated = this.config.isRepeated
+    },
     randomSong() {
         let randomIndex;
         do {
@@ -280,6 +292,9 @@ const app = {
         this.loadCurrentSong()
     },
     start() {
+        // Load config from localStorage
+        this.loadConfig()
+
         // Define properties for object
         this.defineProperties()
 
@@ -291,6 +306,10 @@ const app = {
 
         // Listen/ handle DOM events
         this.handleEvents()
+
+        // Display initial status of the app
+        randomBtn.classList.toggle('active', this.isRandom)
+        repeatBtn.classList.toggle('active', this.isRepeated)
     }
 
 }
