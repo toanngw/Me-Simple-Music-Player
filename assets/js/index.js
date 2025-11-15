@@ -32,16 +32,16 @@ const app = {
             image: './assets/img/loser.jpeg'
         },
         {
-            name: 'Stay',
-            singer: 'Justin Bieber',
-            path: './assets/audio/stay.mp3',
-            image: './assets/img/stay.webp'
-        },
-        {
             name: 'Havana',
             singer: 'Camila Cabello',
             path: './assets/audio/havana.mp3',
             image: './assets/img/havana.png'
+        },
+        {
+            name: 'Uptown Funk',
+            singer: 'Mark Ronson',
+            path: './assets/audio/uptownfunk.mp3',
+            image: './assets/img/uptownfunk.webp'
         },
         {
             name: 'Chúng ta...',
@@ -50,10 +50,22 @@ const app = {
             image: './assets/img/j97.jpg'
         },
         {
-            name: 'Uptown Funk',
-            singer: 'Mark Ronson',
-            path: './assets/audio/uptownfunk.mp3',
-            image: './assets/img/uptownfunk.webp'
+            name: 'Bước qua...',
+            singer: 'Vũ',
+            path: './assets/audio/buocquamuacodon.mp3',
+            image: './assets/img/buocquamuacodon.jpeg'
+        },
+        {
+            name: 'Nếu những...',
+            singer: 'Vũ',
+            path: './assets/audio/neunhungtiecnuoi.mp3',
+            image: './assets/img/neunhungtiecnuoi.jpeg'
+        },
+        {
+            name: 'Những lời...',
+            singer: 'Vũ',
+            path: './assets/audio/nhungloihuaboquen.mp3',
+            image: './assets/img/nhungloihuaboquen.webp'
         },
         {
             name: 'My Eyes',
