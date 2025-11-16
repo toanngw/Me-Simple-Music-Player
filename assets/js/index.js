@@ -26,6 +26,12 @@ const app = {
     config: JSON.parse(localStorage.getItem(MUSIC_PLAYER_SETTING_KEY)) || {},
     songs: [
         {
+            name: 'Ha Noi N U',
+            singer: 'Da Fame',
+            path: './assets/audio/hanoinu.mp3',
+            image: './assets/img/hanoinu.jpg'
+        },
+        {
             name: 'Loser',
             singer: 'Charlie Puth',
             path: './assets/audio/loser.mp3',
